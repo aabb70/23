@@ -48,7 +48,7 @@ def sendImgmap(event):  #圖片地圖
         message = [
             ImagemapSendMessage(
             base_url=image_url,
-            alt_text="圖片地圖範例",
+            alt_text="熱門商品",
             base_size=BaseSize(height=imgheight, width=imgwidth),  #圖片寬及高
             actions=[
                 URIImagemapAction(  #開啟網頁
@@ -73,7 +73,7 @@ def sendImgmap(event):  #圖片地圖
             ),
             ImagemapSendMessage(
             base_url=image_url2,
-            alt_text="圖片地圖範例",
+            alt_text="熱門商品",
             base_size=BaseSize(height=imgheight2, width=imgwidth2),  #圖片寬及高
             actions=[
                  URIImagemapAction(  #開啟網頁
