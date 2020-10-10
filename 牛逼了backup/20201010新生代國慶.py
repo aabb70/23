@@ -44,7 +44,7 @@ def sendImgmap(event):  #圖片地圖
         imgheight = 1306
         image_url2 = 'https://i.imgur.com/d0wxNcV.jpg'  #圖片位址
         imgwidth2 = 1040  #原始圖片寛度一定要1040
-        imgheight2 = 850
+        imgheight2 = 780
         message = [
             ImagemapSendMessage(
             base_url=image_url,
