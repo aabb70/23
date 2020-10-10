@@ -39,9 +39,9 @@ def callback():
     return 'OK'
 def sendImgmap(event):  #圖片地圖
     try:
-        image_url = 'https://i.imgur.com/kPVORK4.png'  #圖片位址
+        image_url = 'https://i.imgur.com/WyVPiHa.jpg'  #圖片位址
         imgwidth = 1040  #原始圖片寛度一定要1040
-        imgheight = 850
+        imgheight = 1306
         image_url2 = 'https://i.imgur.com/mEiVuBQ.jpg'  #圖片位址
         imgwidth2 = 1040  #原始圖片寛度一定要1040
         imgheight2 = 780
@@ -55,16 +55,16 @@ def sendImgmap(event):  #圖片地圖
                     link_uri='https://shopee.tw/aabb7172',
                     area=ImagemapArea(  #右方1/4區域(藍色1)
                         x=0, 
-                        y=693, 
+                        y=1149, 
                         width=imgwidth*0.5, 
                         height=157  
                     )
                 ),
                 URIImagemapAction(  #開啟網頁
-                    link_uri='https://reurl.cc/Qdy7OM',
+                    link_uri='https://reurl.cc/x0pbkN',
                     area=ImagemapArea(  #右方1/4區域(藍色1)
                         x=imgwidth*0.5, 
-                        y=693, 
+                        y=1149, 
                         width=imgwidth*0.5, 
                         height=157  
                     )
