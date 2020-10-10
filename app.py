@@ -42,9 +42,9 @@ def sendImgmap(event):  #圖片地圖
         image_url = 'https://i.imgur.com/WyVPiHa.jpg'  #圖片位址
         imgwidth = 1040  #原始圖片寛度一定要1040
         imgheight = 1306
-        image_url2 = 'https://i.imgur.com/d0wxNcV.jpg'  #圖片位址
+        image_url2 = 'https://i.imgur.com/mobIlul.jpg'  #圖片位址
         imgwidth2 = 1040  #原始圖片寛度一定要1040
-        imgheight2 = 850
+        imgheight2 = 1007
         message = [
             ImagemapSendMessage(
             base_url=image_url,
@@ -76,13 +76,22 @@ def sendImgmap(event):  #圖片地圖
             alt_text="圖片地圖範例",
             base_size=BaseSize(height=imgheight2, width=imgwidth2),  #圖片寬及高
             actions=[
-                URIImagemapAction(  #開啟網頁
-                    link_uri='https://reurl.cc/Qdy7OM',
+                 URIImagemapAction(  #開啟網頁
+                    link_uri='https://shopee.tw/aabb7172',
                     area=ImagemapArea(  #右方1/4區域(藍色1)
                         x=0, 
-                        y=0, 
-                        width=imgwidth2, 
-                        height=imgheight2  
+                        y=850, 
+                        width=imgwidth*0.5, 
+                        height=157  
+                    )
+                ),
+                URIImagemapAction(  #開啟網頁
+                    link_uri='https://reurl.cc/2g6km4',
+                    area=ImagemapArea(  #右方1/4區域(藍色1)
+                        x=imgwidth*0.5, 
+                        y=850, 
+                        width=imgwidth*0.5, 
+                        height=157  
                     )
                 ),
             ]
