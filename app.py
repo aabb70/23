@@ -38,9 +38,9 @@ def callback():
         abort(400)
     return 'OK'
 
-def pushMessage(event, mtext):  ##推播訊息給所有顧客
+def pushMessage(event, text):  ##推播訊息給所有顧客
     try:
-        msg = mtext[6:]  #取得訊息
+        msg = text[6:]  #取得訊息
         userall = users.objects.all()
         for user in userall:  #逐一推播
             message = TextSendMessage(
@@ -208,7 +208,6 @@ def handle_postback(event):
 def handle_message(event):
     print(event)
     text=event.message.text
-    mtext=event.message.text
     if (text=="@查詢商品"):
         message = TemplateSendMessage(
         alt_text='Buttons template',
@@ -230,8 +229,8 @@ def handle_message(event):
         ]
     )
 )
-    elif (mtext[:6] == '123456' and len(mtext) > 6):  #推播給所有顧客
-        pushMessage(event, mtext)
+    elif (text[:6] == '123456' and len(text) > 6):  #推播給所有顧客
+        pushMessage(event, text)
     elif(text=="@熱門商品"):
         sendImgmap(event)
     elif(text=="洗髮精"):
