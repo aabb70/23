@@ -39,8 +39,8 @@ def callback():
     return 'OK'
 def callback(requset):
     if request.method == 'POST':
-        signature = request.headers['X-Line-Signature']
-        body = request.get_data(as_text=True)
+        signature = request.META['HTTP_X_LINE_SIGNATURE']
+        body = request.body.decode('utf-8')
         try:
             events = parser.parse(body, signature)
         except InvalidSignatureError:
