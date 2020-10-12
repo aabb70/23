@@ -40,13 +40,13 @@ def callback():
 
 def pushMessage(event, mtext):  ##推播訊息給所有顧客
     try:
-        msg = text[6:]  #取得訊息
+        msg = mtext[6:]  #取得訊息
         userall = users.objects.all()
         for user in userall:  #逐一推播
             message = TextSendMessage(
                 text = msg
             )
-            line_bot_api.push_message(to=user.uid, TextSendMessage(text = msg))  #推播訊息
+            line_bot_api.push_message(to=user.uid, messages=[message])  #推播訊息
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 def sendImgmap(event):  #圖片地圖
@@ -208,6 +208,7 @@ def handle_postback(event):
 def handle_message(event):
     print(event)
     text=event.message.text
+    mtext=event.message.text
     if (text=="@查詢商品"):
         message = TemplateSendMessage(
         alt_text='Buttons template',
@@ -229,8 +230,8 @@ def handle_message(event):
         ]
     )
 )
-    elif (text[:6] == '123456' and len(text) > 6):  #推播給所有顧客
-        pushMessage(event, text)
+    elif (mtext[:6] == '123456' and len(mtext) > 6):  #推播給所有顧客
+        pushMessage(event, mtext)
     elif(text=="@熱門商品"):
         sendImgmap(event)
     elif(text=="洗髮精"):
