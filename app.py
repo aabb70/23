@@ -42,12 +42,10 @@ def pushMessage(event, text):  ##推播訊息給所有顧客
     to = "U0dd2c81a93c22770dc26475c50908f7d"
     try:
         msg = text[6:]  #取得訊息
-        userall = users.objects.all()
-        for user in userall:  #逐一推播
-            message = TextSendMessage(
-                text = msg
-            )
-            line_bot_api.push_message(to, TextSendMessage(text = msg))  #推播訊息
+        message = TextSendMessage(
+            text = msg
+        )
+        line_bot_api.push_message(to, TextSendMessage(text = msg))  #推播訊息
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 def sendImgmap(event):  #圖片地圖
