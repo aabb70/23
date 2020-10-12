@@ -37,7 +37,6 @@ def callback():
     except InvalidSignatureError:
         abort(400)
     return 'OK'
-@csrf_exempt
 def callback(request):
     for event in events:
         mtext = event.message.text
