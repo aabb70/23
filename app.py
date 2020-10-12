@@ -207,11 +207,9 @@ def handle_postback(event):
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    # get user id when reply
+    print(event)
     user_id = event.source.user_id
     print("user_id =", user_id)
-def handle_message(event):
-    print(event)
     text=event.message.text
     if (text=="@查詢商品"):
         message = TemplateSendMessage(
