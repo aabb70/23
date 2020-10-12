@@ -37,29 +37,10 @@ def callback():
     except InvalidSignatureError:
         abort(400)
     return 'OK'
-def callback(requset):
-    if request.method == 'POST':
-        signature = request.META['HTTP_X_LINE_SIGNATURE']
-        body = request.body.decode('utf-8')
-        try:
-            events = parser.parse(body, signature)
-        except InvalidSignatureError:
-            return HttpResponseForbidden()
-        except LineBotApiError:
-            return HttpResponseBadRequest()
-
-        for event in events:
-            if isinstance(event, MessageEvent):
-                mtext = event.message.text
-                if mtext[:6] == '123456' and len(mtext) > 6:  #推播給所有顧客
-                    pushMessage(event, mtext)
-        return HttpResponse()
-    else:
-        return HttpResponseBadRequest()
 
 def pushMessage(event, mtext):  ##推播訊息給所有顧客
     try:
-        msg = mtext[6:]  #取得訊息
+        msg = text[6:]  #取得訊息
         userall = users.objects.all()
         for user in userall:  #逐一推播
             message = TextSendMessage(
@@ -248,7 +229,8 @@ def handle_message(event):
         ]
     )
 )
-
+    elif (text[:6] == '123456' and len(mtext) > 6):  #推播給所有顧客
+        pushMessage(event, text)
     elif(text=="@熱門商品"):
         sendImgmap(event)
     elif(text=="洗髮精"):
