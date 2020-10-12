@@ -37,7 +37,6 @@ def callback():
     except InvalidSignatureError:
         abort(400)
     return 'OK'
-def callback(request):
     for event in events:
         mtext = event.message.text
         if mtext[:6] == '123456' and len(mtext) > 6:  #推播給所有顧客
