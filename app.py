@@ -47,7 +47,7 @@ def pushMessage(event, text):  ##推播訊息給所有顧客
             message = TextSendMessage(
                 text = msg
             )
-            line_bot_api.push_message(to=user.uid, messages=[message])  #推播訊息
+            line_bot_api.push_message(to=user_id, messages=msg)  #推播訊息
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 def sendImgmap(event):  #圖片地圖
@@ -206,6 +206,10 @@ def handle_postback(event):
         sendBack_QA3(event, backdata)
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    # get user id when reply
+    user_id = event.source.user_id
+    print("user_id =", user_id)
 def handle_message(event):
     print(event)
     text=event.message.text
