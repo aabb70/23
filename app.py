@@ -39,7 +39,7 @@ def callback():
     return 'OK'
 
 def pushMessage(event, text):  ##推播訊息給所有顧客
-    user_id = event.source.user_id
+    user_id = U0dd2c81a93c22770dc26475c50908f7d
     try:
         msg = text[6:]  #取得訊息
         userall = users.objects.all()
