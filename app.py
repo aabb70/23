@@ -37,13 +37,17 @@ def callback():
     except InvalidSignatureError:
         abort(400)
     return 'OK'
-@app.route("/callback", methods=['POST'])
 def callback(requset):
-    for event in events:
-        mtext = event.message.text
-        if mtext[:6] == '123456' and len(mtext) > 6:  #推播給所有顧客
-            pushMessage(event, mtext)
-    return HttpResponse()
+    if request.method == 'POST':
+        signature = request.META['HTTP_X_LINE_SIGNATURE']
+        body = request.body.decode('utf-8')
+        for event in events:
+            mtext = event.message.text
+            if mtext[:6] == '123456' and len(mtext) > 6:  #推播給所有顧客
+                pushMessage(event, mtext)
+        return HttpResponse()
+    else:
+        return HttpResponseBadRequest()
 
 def pushMessage(event, mtext):  ##推播訊息給所有顧客
     try:
