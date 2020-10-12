@@ -124,6 +124,39 @@ def sendImgmap2(event):  #圖片地圖
         line_bot_api.reply_message(event.reply_token, message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+def sendImgmap3(event):  #圖片地圖
+    try:
+        image_url = 'https://i.imgur.com/Y8wKbmm.png'  #圖片位址
+        imgwidth = 1040  #原始圖片寛度一定要1040
+        imgheight = 850
+        message = ImagemapSendMessage(
+            base_url=image_url,
+            alt_text="圖片地圖範例",
+            base_size=BaseSize(height=imgheight, width=imgwidth),  #圖片寬及高
+            actions=[
+                URIImagemapAction(  #開啟網頁
+                    link_uri='https://shopee.tw/aabb7172',
+                    area=ImagemapArea(  #右方1/4區域(藍色1)
+                        x=0, 
+                        y=693, 
+                        width=imgwidth*0.5,
+                        height=157
+                    )
+                ),
+                URIImagemapAction(  #開啟網頁
+                    link_uri='https://reurl.cc/2gK0v4',
+                    area=ImagemapArea(  #右方1/4區域(藍色1)
+                        x=imgwidth*0.5, 
+                        y=693, 
+                        width=imgwidth*0.5, 
+                        height=157
+                    )
+                ),
+            ]
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 def sendQuickreply(event):  #快速選單
     try:
@@ -198,7 +231,7 @@ def handle_message(event):
                         image_url='https://i.imgur.com/MZlMaDT.png',
                         action=PostbackTemplateAction(
                             label='點擊購買',
-                            data='action=sell&item=麥芽餅&URL=https://reurl.cc/R4Qq4G'
+                            data='action=sell&item=麥芽餅&URL=https://reurl.cc/2gK0v4'
                         )
                     ),
                     ImageCarouselColumn(
@@ -211,11 +244,10 @@ def handle_message(event):
                 ]
             )
         )
+    elif(text=="@新品上市"):
+        message = sendImgmap3(event)
     elif(text=="@常見問題"):
         message = sendQuickreply(event)
-    elif(text=="@直播連結"):
-        reply_text = HP
-        message = TextSendMessage(reply_text)
     elif(text=="@幫助"):
         reply_text = "歡迎加入本帳號為好友:D\n以下是指令及功能介紹\n>查詢商品\n點擊下方選單即可查看\n>聯絡方式\n請在對話欄輸入'@聯絡方式'即可查看\n>熱門商品\n請在對話欄輸入'@熱門商品'即可看到最熱銷商品\n>常見問題\n請在對話欄輸入'@常見問題'選取您想知道的資訊。"
         message = TextSendMessage(reply_text)
