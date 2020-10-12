@@ -44,8 +44,6 @@ def callback(request):
         if mtext[:6] == '123456' and len(mtext) > 6:  #推播給所有顧客
             pushMessage(event, mtext)
     return HttpResponse()
-    else:
-        return HttpResponseBadRequest()
 
 def pushMessage(event, mtext):  ##推播訊息給所有顧客
     try:
