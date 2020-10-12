@@ -37,6 +37,8 @@ def callback():
     except InvalidSignatureError:
         abort(400)
     return 'OK'
+@app.route("/callback", methods=['POST'])
+def callback(requset):
     for event in events:
         mtext = event.message.text
         if mtext[:6] == '123456' and len(mtext) > 6:  #推播給所有顧客
