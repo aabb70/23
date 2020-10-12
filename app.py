@@ -244,6 +244,8 @@ def handle_message(event):
                 ]
             )
         )
+    elif(text=="@意見回饋"):
+        message = "https://liff.line.me/1655093260-AD5VDqxd"
     elif(text=="@新品上市"):
         message = sendImgmap3(event)
     elif(text=="@常見問題"):
