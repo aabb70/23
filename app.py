@@ -39,12 +39,20 @@ def callback():
     return 'OK'
 def callback(requset):
     if request.method == 'POST':
-        signature = request.META['HTTP_X_LINE_SIGNATURE']
-        body = request.body.decode('utf-8')
+        signature = request.headers['X-Line-Signature']
+        body = request.get_data(as_text=True)
+        try:
+            events = parser.parse(body, signature)
+        except InvalidSignatureError:
+            return HttpResponseForbidden()
+        except LineBotApiError:
+            return HttpResponseBadRequest()
+
         for event in events:
-            mtext = event.message.text
-            if mtext[:6] == '123456' and len(mtext) > 6:  #推播給所有顧客
-                pushMessage(event, mtext)
+            if isinstance(event, MessageEvent):
+                mtext = event.message.text
+                if mtext[:6] == '123456' and len(mtext) > 6:  #推播給所有顧客
+                    pushMessage(event, mtext)
         return HttpResponse()
     else:
         return HttpResponseBadRequest()
@@ -279,9 +287,6 @@ def handle_message(event):
         message = TextSendMessage(reply_text)
     elif(text=="@聯絡方式"):
         reply_text = "https://shopee.tw/aabb7172↑使用蝦皮聊聊來聯絡我們\n\nhttps://reurl.cc/4R63KV\n↑使用Facebook粉絲專業聯絡我們\n\nhttps://www.instagram.com/junrulive_001/\n↑使用Instagram來聯絡我們"
-        message = TextSendMessage(reply_text)
-    else:
-        reply_text = "如找不到您所想找的東西，請輸入 @幫助 他會直接回覆您。"
         message = TextSendMessage(reply_text)
     
     line_bot_api.reply_message(event.reply_token, message)
