@@ -229,7 +229,7 @@ def handle_message(event):
         ]
     )
 )
-    elif (text[:6] == '123456' and len(mtext) > 6):  #推播給所有顧客
+    elif (text[:6] == '123456' and len(text) > 6):  #推播給所有顧客
         pushMessage(event, text)
     elif(text=="@熱門商品"):
         sendImgmap(event)
