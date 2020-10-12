@@ -37,6 +37,27 @@ def callback():
     except InvalidSignatureError:
         abort(400)
     return 'OK'
+@csrf_exempt
+def callback(request):
+    for event in events:
+        mtext = event.message.text
+        if mtext[:6] == '123456' and len(mtext) > 6:  #推播給所有顧客
+            pushMessage(event, mtext)
+    return HttpResponse()
+    else:
+        return HttpResponseBadRequest()
+
+def pushMessage(event, mtext):  ##推播訊息給所有顧客
+    try:
+        msg = mtext[6:]  #取得訊息
+        userall = users.objects.all()
+        for user in userall:  #逐一推播
+            message = TextSendMessage(
+                text = msg
+            )
+            line_bot_api.push_message(to=user.uid, messages=[message])  #推播訊息
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 def sendImgmap(event):  #圖片地圖
     try:
         image_url = 'https://i.imgur.com/WyVPiHa.jpg'  #圖片位址

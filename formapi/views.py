@@ -9,11 +9,8 @@ from module import func
 from formapi.models import users
 import configparser
 
-config = configparser.ConfigParser()
-config.read('config.ini')
-
-line_bot_api = LineBotApi(config.get('line-bot', 'channel_access_token'))
-handler = WebhookHandler(config.get('line-bot', 'channel_secret'))
+line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
+parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 
 @csrf_exempt
 def callback(request):
@@ -21,7 +18,7 @@ def callback(request):
         signature = request.META['HTTP_X_LINE_SIGNATURE']
         body = request.body.decode('utf-8')
         try:
-            events = handler.handle(body, signature)
+            events = parser.parse(body, signature)
         except InvalidSignatureError:
             return HttpResponseForbidden()
         except LineBotApiError:
