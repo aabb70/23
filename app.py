@@ -37,6 +37,32 @@ def callback():
     except InvalidSignatureError:
         abort(400)
     return 'OK'
+@csrf_exempt
+def callback(request):
+    if request.method == 'POST':
+        signature = request.META['HTTP_X_LINE_SIGNATURE']
+        body = request.body.decode('utf-8')
+        try:
+            events = parser.parse(body, signature)
+        except InvalidSignatureError:
+            return HttpResponseForbidden()
+        except LineBotApiError:
+            return HttpResponseBadRequest()
+
+        for event in events:
+            if isinstance(event, MessageEvent):
+                if isinstance(event.message, TextMessage):
+                    mtext = event.message.text
+                    if mtext == '@彈性配置':
+                        func.sendFlex(event)
+    
+                    elif mtext[:3] == '###' and len(mtext) > 3:
+                         func.manageForm(event, mtext)
+    
+        return HttpResponse()
+
+    else:
+        return HttpResponseBadRequest()
 def sendImgmap(event):  #圖片地圖
     try:
         image_url = 'https://i.imgur.com/WyVPiHa.jpg'  #圖片位址
