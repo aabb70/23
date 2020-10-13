@@ -1,1 +1,1 @@
-heroku logs --tail --app aibotde
+heroku logs --tail --app aibotliff
