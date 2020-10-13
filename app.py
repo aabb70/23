@@ -8,7 +8,11 @@ from linebot.exceptions import (
 from linebot.models import *
 import configparser
 from urllib.parse import parse_qsl
-from .models import users
+from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
+from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
+from formapi.models import users
 
 app = Flask(__name__)
 
