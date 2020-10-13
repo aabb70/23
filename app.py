@@ -8,6 +8,7 @@ from linebot.exceptions import (
 from linebot.models import *
 import configparser
 from urllib.parse import parse_qsl
+from formapi.models import users
 
 app = Flask(__name__)
 
@@ -196,7 +197,7 @@ def manageForm(event, text, user_id):  #處理LIFF傳回的FORM資料
         amount = flist[1]
         in_date = flist[2]
         out_date = flist[3]
-        unit = formapi.users.objects.create(Uid=roomtype, Datatest=amount)  #寫入資料庫
+        unit = users.objects.create(uid=roomtype, datatest=amount)  #寫入資料庫
         unit.save()
         text1 = "您的房間已預訂成功，資料如下："
         text1 += "\n房間型式：" + roomtype
