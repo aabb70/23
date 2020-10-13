@@ -38,8 +38,7 @@ def callback():
         abort(400)
     return 'OK'
 
-def pushMessage(event, text):  ##推播訊息給所有顧客
-    to = event.source.user_id
+def pushMessage(event, text):
     try:
         msg = text[6:]  #取得訊息
         message = TextSendMessage(
@@ -190,6 +189,26 @@ def sendQuickreply(event):  #快速選單
         line_bot_api.reply_message(event.reply_token,message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+def manageForm(event, text, user_id):  #處理LIFF傳回的FORM資料
+    try:
+        flist = text[3:].split('/')  #去除前三個「#」字元再分解字串
+        roomtype = flist[0]  #取得輸入資料
+        amount = flist[1]
+        in_date = flist[2]
+        out_date = flist[3]
+        unit = booking.objects.create(bid=user_id, roomtype=roomtype, roomamount=amount, datein=in_date, dateout=out_date)  #寫入資料庫
+        unit.save()
+        text1 = "您的房間已預訂成功，資料如下："
+        text1 += "\n房間型式：" + roomtype
+        text1 += "\n房間數量：" + amount
+        text1 += "\n入住日期：" + in_date
+        text1 += "\n退房日期：" + out_date
+        message = TextSendMessage(  #顯示訂房資料
+            text = text1
+        )
+        line_bot_api.reply_message(event.reply_token,message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 # 接受BACKDATA訊息，回送問題回答
 @handler.add(PostbackEvent)
 def handle_postback(event):
@@ -230,8 +249,8 @@ def handle_message(event):
         ]
     )
 )
-    elif (text[:6] == '123456' and len(text) > 6):  #推播給所有顧客
-        pushMessage(event, text)
+    elif text[:3] == '###' and len(text) > 3:  
+        manageForm(event, text, user_id)
     elif(text=="@熱門商品"):
         sendImgmap(event)
     elif(text=="洗髮精"):
