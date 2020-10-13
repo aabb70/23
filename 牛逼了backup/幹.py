@@ -8,7 +8,6 @@ from linebot.exceptions import (
 from linebot.models import *
 import configparser
 from urllib.parse import parse_qsl
-from .models import users
 
 app = Flask(__name__)
 
