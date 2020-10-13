@@ -190,14 +190,13 @@ def sendQuickreply(event):  #快速選單
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 def manageForm(event, text, user_id):  #處理LIFF傳回的FORM資料
-    user_id = event.source.user_id
     try:
         flist = text[3:].split('/')  #去除前三個「#」字元再分解字串
         roomtype = flist[0]  #取得輸入資料
         amount = flist[1]
         in_date = flist[2]
         out_date = flist[3]
-        unit = booking.objects.create(bid=user_id, roomtype=roomtype, roomamount=amount, datein=in_date, dateout=out_date)  #寫入資料庫
+        unit = booking.objects.create(roomtype=roomtype, roomamount=amount, datein=in_date, dateout=out_date)  #寫入資料庫
         unit.save()
         text1 = "您的房間已預訂成功，資料如下："
         text1 += "\n房間型式：" + roomtype
@@ -291,7 +290,10 @@ def handle_message(event):
     elif(text=="@聯絡方式"):
         reply_text = "https://shopee.tw/aabb7172↑使用蝦皮聊聊來聯絡我們\n\nhttps://reurl.cc/4R63KV\n↑使用Facebook粉絲專業聯絡我們\n\nhttps://www.instagram.com/junrulive_001/\n↑使用Instagram來聯絡我們"
         message = TextSendMessage(reply_text)
-    
+    else:
+        reply_text = "如找不到您所想找的東西，請輸入 @幫助 他會直接回覆您。"
+        message = TextSendMessage(reply_text)
+        
     line_bot_api.reply_message(event.reply_token, message)
 def sendBack_QA1(event, backdata):  #處理Postback
     try:
