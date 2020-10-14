@@ -167,6 +167,30 @@ def sendImgmap3(event):  #圖片地圖
         line_bot_api.reply_message(event.reply_token, message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+def sendImgmap4(event):  #圖片地圖
+    try:
+        image_url = 'https://i.imgur.com/UBRq9nW.jpg'  #圖片位址
+        imgwidth = 1040  #原始圖片寛度一定要1040
+        imgheight = 615
+        message = ImagemapSendMessage(
+            base_url=image_url,
+            alt_text="麥芽餅",
+            base_size=BaseSize(height=imgheight, width=imgwidth),  #圖片寬及高
+            actions=[
+                URIImagemapAction(  #開啟網頁
+                    link_uri='https://reurl.cc/Qdy7OM',
+                    area=ImagemapArea(  #右方1/4區域(藍色1)
+                        x=0, 
+                        y=520, 
+                        width=imgwidth, 
+                        height=95  
+                    )
+                ),
+            ]
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 def sendQuickreply(event):  #快速選單
     try:
@@ -251,8 +275,10 @@ def handle_message(event):
         manageForm(event, text, user_id)
     elif(text=="@熱門商品"):
         sendImgmap(event)
-    elif(text=="洗髮精"):
+    elif(text=="@洗髮精"):
         sendImgmap2(event)
+    elif(text=="@麥芽餅"):
+        sendImgmap4(event)
     elif(text=="@促銷商品"):
         message = TemplateSendMessage(
             alt_text='圖片轉盤樣板',
