@@ -8,10 +8,6 @@ from linebot.exceptions import (
 from linebot.models import *
 import configparser
 from urllib.parse import parse_qsl
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
-from django.views.decorators.csrf import csrf_exempt
-from django.conf import settings
 from formapi.models import users
 
 app = Flask(__name__)
@@ -201,8 +197,6 @@ def manageForm(event, text, user_id):  #處理LIFF傳回的FORM資料
         amount = flist[1]
         in_date = flist[2]
         out_date = flist[3]
-        unit = users.objects.create(uid=roomtype, datatest=amount)  #寫入資料庫
-        unit.save()
         text1 = "您的房間已預訂成功，資料如下："
         text1 += "\n房間型式：" + roomtype
         text1 += "\n房間數量：" + amount
