@@ -178,7 +178,7 @@ def sendImgmap4(event):  #圖片地圖
             base_size=BaseSize(height=imgheight, width=imgwidth),  #圖片寬及高
             actions=[
                 URIImagemapAction(  #開啟網頁
-                    link_uri='https://reurl.cc/Qdy7OM',
+                    link_uri='https://reurl.cc/5qK7ln',
                     area=ImagemapArea(  #右方1/4區域(藍色1)
                         x=0, 
                         y=520, 
