@@ -14,8 +14,6 @@ key="bV4akQdW4pslTjEqTyeTVHhp7xCCP0EeoAwEvQar"
 authentication = firebase.FirebaseAuthentication(key, denis66604@gmail.com)
 firebase.authentication = authentication
 user = authentication.get_user()
-firebase = firebase.FirebaseApplication('https://python-999b6.firebaseio.com/';
-authentication=authentication)
 
 
 result = firebase.get('/ABC','A1')
