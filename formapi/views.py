@@ -7,6 +7,8 @@ from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import MessageEvent, TextSendMessage
 from module import func
 from formapi.models import users
+from .forms import PostForm
+from django.shortcuts import render
 
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
@@ -49,3 +51,6 @@ def pushMessage(event, mtext):  ##推播訊息給所有顧客
             line_bot_api.push_message(to=user.uid, messages=[message])  #推播訊息
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+def post_new(request):
+    form = PostForm()
+    return render(request, 'blog/post_edit.html', {'form': users})

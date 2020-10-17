@@ -8,6 +8,18 @@ from linebot.exceptions import (
 from linebot.models import *
 import configparser
 from urllib.parse import parse_qsl
+from firebase import firebase
+
+key="bV4akQdW4pslTjEqTyeTVHhp7xCCP0EeoAwEvQar"
+authentication = firebase.FirebaseAuthentication(key, denis66604@gmail.com)
+firebase.authentication = authentication
+user = authentication.get_user()
+firebase = firebase.FirebaseApplication('https://python-999b6.firebaseio.com/';
+authentication=authentication)
+
+
+result = firebase.get('/ABC','A1')
+print(result)
 
 app = Flask(__name__)
 
@@ -218,13 +230,9 @@ def manageForm(event, text, user_id):  #處理LIFF傳回的FORM資料
         flist = text[3:].split('/')  #去除前三個「#」字元再分解字串
         roomtype = flist[0]  #取得輸入資料
         amount = flist[1]
-        in_date = flist[2]
-        out_date = flist[3]
         text1 = "您的房間已預訂成功，資料如下："
         text1 += "\n房間型式：" + roomtype
         text1 += "\n房間數量：" + amount
-        text1 += "\n入住日期：" + in_date
-        text1 += "\n退房日期：" + out_date
         message = TextSendMessage(  #顯示訂房資料
             text = text1
         )

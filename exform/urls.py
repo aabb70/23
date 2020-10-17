@@ -21,4 +21,5 @@ from formapi import views
 urlpatterns = [
     url('^callback', views.callback),
     path('admin/', admin.site.urls),
+    url(r'^post/new/$', views.post_new, name='post_new'),
 ]
