@@ -9,14 +9,6 @@ from linebot.models import *
 import configparser
 from urllib.parse import parse_qsl
 
-key="bV4akQdW4pslTjEqTyeTVHhp7xCCP0EeoAwEvQar"
-authentication = firebase.FirebaseAuthentication(key, denis66604@gmail.com)
-firebase.authentication = authentication
-user = authentication.get_user()
-
-
-result = firebase.get('/ABC','A1')
-print(result)
 
 app = Flask(__name__)
 
