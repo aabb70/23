@@ -217,13 +217,15 @@ def sendQuickreply(event):  #快速選單
 def manageForm(event, text, user_id):  #處理LIFF傳回的FORM資料
     try:
         flist = text[3:].split('/')  #去除前三個「#」字元再分解字串
+        T = text[0:].flist[0]
         roomtype = flist[0]  #取得輸入資料
         amount = flist[1]
         tel = flist[2]
-        text1 = "您的問題我們已經收到，個人資料如下："
+        text1 = "親愛的您的問題我們已經收到，個人資料如下："
         text1 += "\n性別：" + roomtype
         text1 += "\n姓名：" + amount
         text1 += "\n電話：" + tel
+        text1 += "\n測試:" + T
         message = TextSendMessage(  #顯示訂房資料
             text = text1
         )
