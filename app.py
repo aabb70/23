@@ -221,9 +221,9 @@ def manageForm(event, text, user_id):  #處理LIFF傳回的FORM資料
         roomtype = flist[0]  #取得輸入資料
         amount = flist[1]
         tel = flist[2]
-        if flist[0] = "男":
+        if flist[0] == "男":
             R = "先生"
-        elif flist[0] = "女":
+        elif flist[0] == "女":
             R = "小姐"
         else:
             R = "用戶"
