@@ -219,9 +219,11 @@ def manageForm(event, text, user_id):  #處理LIFF傳回的FORM資料
         flist = text[3:].split('/')  #去除前三個「#」字元再分解字串
         roomtype = flist[0]  #取得輸入資料
         amount = flist[1]
-        text1 = "您的房間已預訂成功，資料如下："
-        text1 += "\n房間型式：" + roomtype
-        text1 += "\n房間數量：" + amount
+        tel = flist[2]
+        text1 = "您的問題我們已經收到，個人資料如下："
+        text1 += "\n性別：" + roomtype
+        text1 += "\n姓名：" + amount
+        text1 += "\n電話：" + tel
         message = TextSendMessage(  #顯示訂房資料
             text = text1
         )
