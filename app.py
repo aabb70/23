@@ -217,7 +217,7 @@ def sendQuickreply(event):  #快速選單
 def manageForm(event, text, user_id):  #處理LIFF傳回的FORM資料
     try:
         flist = text[3:].split('/')  #去除前三個「#」字元再分解字串
-        T = text[0:].flist[0]
+        T = flist[0:1]
         roomtype = flist[0]  #取得輸入資料
         amount = flist[1]
         tel = flist[2]
