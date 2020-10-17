@@ -8,7 +8,6 @@ from linebot.exceptions import (
 from linebot.models import *
 import configparser
 from urllib.parse import parse_qsl
-from firebase import firebase
 
 key="bV4akQdW4pslTjEqTyeTVHhp7xCCP0EeoAwEvQar"
 authentication = firebase.FirebaseAuthentication(key, denis66604@gmail.com)
