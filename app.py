@@ -277,6 +277,21 @@ def handle_message(event):
         ]
     )
 )
+    elif (text=="@客服"):
+        message = TemplateSendMessage(
+        alt_text='Buttons template',
+        template=ButtonsTemplate(
+        thumbnail_image_url='https://i.imgur.com/09zXjwG.png',
+        title='專人客服',
+        text='請選擇查詢的類別',
+        actions=[
+            URITemplateAction(
+                label='點擊加入客服好友',
+                uri='https://lin.ee/M8o7Dhr'
+            )
+        ]
+    )
+)
     elif text[:3] == '###' and len(text) > 3:  
         manageForm(event, text, user_id)
     elif(text=="@熱門商品"):
@@ -318,8 +333,10 @@ def handle_message(event):
         reply_text = "歡迎加入本帳號為好友:D\n以下是指令及功能介紹\n>查詢商品\n點擊下方選單即可查看\n>聯絡方式\n請在對話欄輸入'@聯絡方式'即可查看\n>熱門商品\n請在對話欄輸入'@熱門商品'即可看到最熱銷商品\n>常見問題\n請在對話欄輸入'@常見問題'選取您想知道的資訊。"
         message = TextSendMessage(reply_text)
     elif(text=="@聯絡方式"):
-        reply_text = "https://shopee.tw/aabb7172↑使用蝦皮聊聊來聯絡我們\n\nhttps://reurl.cc/4R63KV\n↑使用Facebook粉絲專業聯絡我們\n\nhttps://www.instagram.com/junrulive_001/\n↑使用Instagram來聯絡我們"
+        reply_text = "https://shopee.tw/aabb7172\n↑使用蝦皮聊聊來聯絡我們\n\nhttps://reurl.cc/e8kjrQ\n↑使用Facebook粉絲專業聯絡我們\n\nhttps://www.instagram.com/junrulive_001/\n↑使用Instagram來聯絡我們"
         message = TextSendMessage(reply_text)
+    elif(text=="專人客服"):
+        reply_text = "https://lin.ee/M8o7Dhr\n歡迎詢問我們的專人客服，客服看到後會盡速回覆您。"
     else:
         reply_text = "如找不到您所想找的東西，請輸入 @幫助 他會直接回覆您。"
         message = TextSendMessage(reply_text)
