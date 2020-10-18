@@ -345,7 +345,7 @@ def handle_message(event):
 def sendBack_QA1(event, backdata):  #處理Postback
     try:
         message = TextSendMessage(  #傳送文字
-            text = "營業時間週一~週五 10:00-22:00 週六 10:00-23:00 可先來電0917781338洽詢。"
+            text = "營業時間週一~週五 10:00-24:00 週末:12:00-23:00 可先來電0917781338洽詢。"
         )
         line_bot_api.reply_message(event.reply_token, message)
     except:
