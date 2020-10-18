@@ -281,7 +281,7 @@ def handle_message(event):
         message = TemplateSendMessage(
         alt_text='Buttons template',
         template=ButtonsTemplate(
-        thumbnail_image_url='https://i.imgur.com/09zXjwG.png',
+        thumbnail_image_url='https://imgur.com/k1aqgPP',
         title='專人客服',
         text='請選擇查詢的類別',
         actions=[
