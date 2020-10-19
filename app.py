@@ -224,7 +224,7 @@ def funcserach(event):  #快速選單
                         action=PostbackTemplateAction(label="常見問題", data='action=Func1')
                     ),
                     QuickReplyButton(
-                        action=PostbackTemplateAction(label="購買須知", data='action=QA2')
+                        action=PostbackTemplateAction(label="聯絡方式", data='action=Func2')
                     ),
                     QuickReplyButton(
                         action=PostbackTemplateAction(label="取貨方式", data='action=QA3')
@@ -272,6 +272,8 @@ def handle_postback(event):
         sendBack_QA3(event, backdata)
     elif backdata.get('action') == 'Func1':
         sendQuickreply(event)
+    elif backdata.ger('action') == 'Func2':
+
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -358,8 +360,7 @@ def handle_message(event):
         reply_text = "歡迎加入本帳號為好友:D\n以下是指令及功能介紹\n>查詢商品\n點擊下方選單即可查看\n>聯絡方式\n請在對話欄輸入'@聯絡方式'即可查看\n>熱門商品\n請在對話欄輸入'@熱門商品'即可看到最熱銷商品\n>常見問題\n請在對話欄輸入'@常見問題'選取您想知道的資訊。\n促銷商品推薦\n請在對話欄輸入'@促銷商品'獲得我們的商品訊息。\n專人客服\n請輸入'@客服'後，點擊加入客服好友，我們會盡速回覆您。"
         message = TextSendMessage(reply_text)
     elif(text=="@聯絡方式"):
-        reply_text = "https://shopee.tw/aabb7172\n↑使用蝦皮聊聊來聯絡我們\n\nhttps://reurl.cc/e8kjrQ\n↑使用Facebook粉絲專業聯絡我們\n\nhttps://www.instagram.com/junrulive_001/\n↑使用Instagram來聯絡我們"
-        message = TextSendMessage(reply_text)
+        message = sendBack_Func2(event, backdata)
     else:
         reply_text = "如找不到您所想找的東西，請輸入'@幫助'他會直接回覆您。"
         message = TextSendMessage(reply_text)
@@ -399,6 +400,14 @@ def sendBack_sell(event, backdata):  #處理Postback
                 text = backdata.get('URL')
         )
     ]
+        line_bot_api.reply_message(event.reply_token, message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+def sendBack_Func2(event, backdata):  #處理Postback
+    try:
+        message = TextSendMessage(  #傳送文字
+            text = "https://shopee.tw/aabb7172\n↑使用蝦皮聊聊來聯絡我們\n\nhttps://reurl.cc/e8kjrQ\n↑使用Facebook粉絲專業聯絡我們\n\nhttps://www.instagram.com/junrulive_001/\n↑使用Instagram來聯絡我們"
+        )
         line_bot_api.reply_message(event.reply_token, message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
