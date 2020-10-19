@@ -214,27 +214,6 @@ def sendQuickreply(event):  #快速選單
         line_bot_api.reply_message(event.reply_token,message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-def funcserach(event):  #快速選單
-    try:
-        message = TextSendMessage(
-            text='請選擇需要使用的功能',
-            quick_reply=QuickReply(
-                items=[
-                    QuickReplyButton(
-                        action=PostbackTemplateAction(label="常見問題", data='action=Func1')
-                    ),
-                    QuickReplyButton(
-                        action=PostbackTemplateAction(label="購買須知", data='action=QA2')
-                    ),
-                    QuickReplyButton(
-                        action=PostbackTemplateAction(label="取貨方式", data='action=QA3')
-                    ),
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token,message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 def manageForm(event, text, user_id):  #處理LIFF傳回的FORM資料
     try:
         flist = text[3:].split('/')  #去除前三個「#」字元再分解字串
@@ -270,8 +249,6 @@ def handle_postback(event):
         sendBack_QA2(event, backdata)
     elif backdata.get('action') == 'QA3':
         sendBack_QA3(event, backdata)
-    elif backdata.get('action') == 'Func1':
-        sendQuickreply(event)
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
