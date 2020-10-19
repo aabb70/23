@@ -273,6 +273,7 @@ def handle_postback(event):
     elif backdata.get('action') == 'Func1':
         sendQuickreply(event)
     elif backdata.ger('action') == 'Func2':
+        sendBack_Func2(event, backdata)
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
