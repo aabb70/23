@@ -272,7 +272,7 @@ def handle_postback(event):
         sendBack_QA3(event, backdata)
     elif backdata.get('action') == 'Func1':
         sendQuickreply(event)
-    elif backdata.ger('action') == 'Func2':
+    elif backdata.get('action') == 'Func2':
         sendBack_Func2(event, backdata)
 
 # 處理訊息
