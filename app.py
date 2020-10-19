@@ -330,7 +330,7 @@ def handle_message(event):
     elif(text=="@常見問題"):
         message = sendQuickreply(event)
     elif(text=="@幫助"):
-        reply_text = "歡迎加入本帳號為好友:D\n以下是指令及功能介紹\n>查詢商品\n點擊下方選單即可查看\n>聯絡方式\n請在對話欄輸入'@聯絡方式'即可查看\n>熱門商品\n請在對話欄輸入'@熱門商品'即可看到最熱銷商品\n>常見問題\n請在對話欄輸入'@常見問題'選取您想知道的資訊。"
+        reply_text = "歡迎加入本帳號為好友:D\n以下是指令及功能介紹\n>查詢商品\n點擊下方選單即可查看\n>聯絡方式\n請在對話欄輸入'@聯絡方式'即可查看\n>熱門商品\n請在對話欄輸入'@熱門商品'即可看到最熱銷商品\n>常見問題\n請在對話欄輸入'@常見問題'選取您想知道的資訊。\n促銷商品推薦\n請在對話欄輸入'@促銷商品'獲得我們的商品訊息。"
         message = TextSendMessage(reply_text)
     elif(text=="@聯絡方式"):
         reply_text = "https://shopee.tw/aabb7172\n↑使用蝦皮聊聊來聯絡我們\n\nhttps://reurl.cc/e8kjrQ\n↑使用Facebook粉絲專業聯絡我們\n\nhttps://www.instagram.com/junrulive_001/\n↑使用Instagram來聯絡我們"
