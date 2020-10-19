@@ -227,7 +227,7 @@ def funcserach(event):  #快速選單
                         action=PostbackTemplateAction(label="聯絡方式", data='action=Func2')
                     ),
                     QuickReplyButton(
-                        action=PostbackTemplateAction(label="取貨方式", data='action=QA3')
+                        action=PostbackTemplateAction(label="促銷商品", data='action=Func3')
                     ),
                 ]
             )
@@ -258,6 +258,28 @@ def manageForm(event, text, user_id):  #處理LIFF傳回的FORM資料
         line_bot_api.reply_message(event.reply_token,message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+def onsale(event):
+    message = TemplateSendMessage(
+            alt_text='圖片轉盤樣板',
+            template=ImageCarouselTemplate(
+                columns=[
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/MZlMaDT.png',
+                        action=PostbackTemplateAction(
+                            label='點擊購買',
+                            data='action=sell&item=麥芽餅&URL=https://reurl.cc/2gK0v4'
+                        )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/qtOiw17.png',
+                        action=PostbackTemplateAction(
+                            label='點擊購買',
+                            data='action=sell&item=KIN卡碧絲洗髮精&URL=https://reurl.cc/nzRNEv'
+                        )
+                    )
+                ]
+            )
+        )
 # 接受BACKDATA訊息，回送問題回答
 @handler.add(PostbackEvent)
 def handle_postback(event):
@@ -274,6 +296,8 @@ def handle_postback(event):
         sendQuickreply(event)
     elif backdata.get('action') == 'Func2':
         sendBack_Func2(event, backdata)
+    elif backdata.get('action') == 'Func3':
+        onsale(event)
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
@@ -329,27 +353,7 @@ def handle_message(event):
     elif(text=="@麥芽餅"):
         sendImgmap4(event)
     elif(text=="@促銷商品"):
-        message = TemplateSendMessage(
-            alt_text='圖片轉盤樣板',
-            template=ImageCarouselTemplate(
-                columns=[
-                    ImageCarouselColumn(
-                        image_url='https://i.imgur.com/MZlMaDT.png',
-                        action=PostbackTemplateAction(
-                            label='點擊購買',
-                            data='action=sell&item=麥芽餅&URL=https://reurl.cc/2gK0v4'
-                        )
-                    ),
-                    ImageCarouselColumn(
-                        image_url='https://i.imgur.com/qtOiw17.png',
-                        action=PostbackTemplateAction(
-                            label='點擊購買',
-                            data='action=sell&item=KIN卡碧絲洗髮精&URL=https://reurl.cc/nzRNEv'
-                        )
-                    )
-                ]
-            )
-        )
+        onsale(event)
     elif(text=="@意見回饋"):
         reply_text = "https://liff.line.me/1655093260-AD5VDqxd"
         message = TextSendMessage(reply_text)
