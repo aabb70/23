@@ -300,6 +300,8 @@ def handle_message(event):
         ]
     )
 )
+    elif (text=="@功能查詢"):
+        message = funcserach(event)
     elif (text=="@客服"):
         message = TemplateSendMessage(
         alt_text='Buttons template',
