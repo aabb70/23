@@ -261,7 +261,7 @@ def manageForm(event, text, user_id):  #處理LIFF傳回的FORM資料
         line_bot_api.reply_message(event.reply_token,message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-def sendBack_onsale(event):
+def sendBack_onsale(event, backdata):
     message = TemplateSendMessage(
             alt_text='圖片轉盤樣板',
             template=ImageCarouselTemplate(
@@ -300,7 +300,7 @@ def handle_postback(event):
     elif backdata.get('action') == 'Func2':
         sendBack_Func2(event, backdata)
     elif backdata.get('action') == 'Func3':
-        sendBack_onsale(event)
+        sendBack_onsale(event, backdata)
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
@@ -356,7 +356,7 @@ def handle_message(event):
     elif(text=="@麥芽餅"):
         sendImgmap4(event)
     elif(text=="@促銷商品"):
-        sendBack_onsale(event)
+        sendBack_onsale(event, backdata)
     elif(text=="@意見回饋"):
         reply_text = "https://liff.line.me/1655093260-AD5VDqxd"
         message = TextSendMessage(reply_text)
