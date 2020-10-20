@@ -206,7 +206,7 @@ def sendQuickreply(event):  #快速選單
                         action=PostbackTemplateAction(label="購買須知", data='action=QA2')
                     ),
                     QuickReplyButton(
-                        action=PostbackTemplateAction(label="取貨方式", data='action=QA3')
+                        action=PostbackTemplateAction(label="取貨方式", data='action=QA3', text='ass')
                     ),
                 ]
             )
