@@ -261,31 +261,6 @@ def manageForm(event, text, user_id):  #處理LIFF傳回的FORM資料
         line_bot_api.reply_message(event.reply_token,message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-def sendBack_onsale(event, backdata):
-    try:
-        message = TemplateSendMessage(
-            alt_text='圖片轉盤樣板',
-            template=ImageCarouselTemplate(
-                columns=[
-                    ImageCarouselColumn(
-                        image_url='https://i.imgur.com/MZlMaDT.png',
-                        action=PostbackTemplateAction(
-                            label='點擊購買',
-                            data='action=sell&item=麥芽餅&URL=https://reurl.cc/2gK0v4'
-                        )
-                    ),
-                    ImageCarouselColumn(
-                        image_url='https://i.imgur.com/qtOiw17.png',
-                        action=PostbackTemplateAction(
-                            label='點擊購買',
-                            data='action=sell&item=KIN卡碧絲洗髮精&URL=https://reurl.cc/nzRNEv'
-                        )
-                    )
-                ]
-            )
-        )
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 # 接受BACKDATA訊息，回送問題回答
 @handler.add(PostbackEvent)
 def handle_postback(event):
@@ -421,6 +396,31 @@ def sendBack_Func2(event, backdata):  #處理Postback
             text = "https://shopee.tw/aabb7172\n↑使用蝦皮聊聊來聯絡我們\n\nhttps://reurl.cc/e8kjrQ\n↑使用Facebook粉絲專業聯絡我們\n\nhttps://www.instagram.com/junrulive_001/\n↑使用Instagram來聯絡我們"
         )
         line_bot_api.reply_message(event.reply_token, message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+def sendBack_onsale(event, backdata):
+    try:
+        message = TemplateSendMessage(
+            alt_text='圖片轉盤樣板',
+            template=ImageCarouselTemplate(
+                columns=[
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/MZlMaDT.png',
+                        action=PostbackTemplateAction(
+                            label='點擊購買',
+                            data='action=sell&item=麥芽餅&URL=https://reurl.cc/2gK0v4'
+                        )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/qtOiw17.png',
+                        action=PostbackTemplateAction(
+                            label='點擊購買',
+                            data='action=sell&item=KIN卡碧絲洗髮精&URL=https://reurl.cc/nzRNEv'
+                        )
+                    )
+                ]
+            )
+        )
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
