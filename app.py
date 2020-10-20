@@ -224,8 +224,8 @@ def funcserach(event):  #快速選單
                         action=PostbackTemplateAction(label="常見問題", data='action=Func1'),
                         image_url = "https://imgur.com/zRYwkld.png"),
                     QuickReplyButton(
-                        action=PostbackTemplateAction(label="聯絡方式", data='action=Func2')
-                    ),
+                        action=PostbackTemplateAction(label="聯絡方式", data='action=Func2'),
+                        image_url = "https://imgur.com/xb2Y3TL.png"),
                     QuickReplyButton(
                         action=PostbackTemplateAction(label="促銷商品", data='action=Func3', text='@促銷商品')
                     ),
