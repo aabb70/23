@@ -334,7 +334,30 @@ def handle_message(event):
     elif(text=="@麥芽餅"):
         sendImgmap4(event)
     elif(text=="@促銷商品"):
-        sendBack_onsale(event)
+        try:
+            message = TemplateSendMessage(
+                alt_text='圖片轉盤樣板',
+                template=ImageCarouselTemplate(
+                    columns=[
+                        ImageCarouselColumn(
+                            image_url='https://i.imgur.com/MZlMaDT.png',
+                            action=PostbackTemplateAction(
+                                label='點擊購買',
+                                data='action=sell&item=麥芽餅&URL=https://reurl.cc/2gK0v4'
+                            )
+                        ),
+                        ImageCarouselColumn(
+                            image_url='https://i.imgur.com/qtOiw17.png',
+                            action=PostbackTemplateAction(
+                                label='點擊購買',
+                                data='action=sell&item=KIN卡碧絲洗髮精&URL=https://reurl.cc/nzRNEv'
+                            )
+                        )
+                    ]
+                )
+            )
+        except:
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
     elif(text=="@意見回饋"):
         reply_text = "https://liff.line.me/1655093260-AD5VDqxd"
         message = TextSendMessage(reply_text)
