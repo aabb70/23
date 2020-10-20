@@ -262,7 +262,8 @@ def manageForm(event, text, user_id):  #處理LIFF傳回的FORM資料
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 def sendBack_onsale(event, backdata):
-    message = TemplateSendMessage(
+    try:
+        message = TemplateSendMessage(
             alt_text='圖片轉盤樣板',
             template=ImageCarouselTemplate(
                 columns=[
@@ -283,6 +284,8 @@ def sendBack_onsale(event, backdata):
                 ]
             )
         )
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 # 接受BACKDATA訊息，回送問題回答
 @handler.add(PostbackEvent)
 def handle_postback(event):
