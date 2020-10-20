@@ -334,7 +334,7 @@ def handle_message(event):
     elif(text=="@麥芽餅"):
         sendImgmap4(event)
     elif(text=="@促銷商品"):
-        message = sendBack_onsale(event)
+        sendBack_onsale(event)
     elif(text=="@意見回饋"):
         reply_text = "https://liff.line.me/1655093260-AD5VDqxd"
         message = TextSendMessage(reply_text)
