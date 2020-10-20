@@ -278,7 +278,30 @@ def handle_postback(event):
     elif backdata.get('action') == 'Func2':
         sendBack_Func2(event, backdata)
     elif backdata.get('action') == 'Func3':
-        sendBack_onsale(event, backdata)
+        try:
+            message = TemplateSendMessage(
+                alt_text='圖片轉盤樣板',
+                template=ImageCarouselTemplate(
+                    columns=[
+                        ImageCarouselColumn(
+                            image_url='https://i.imgur.com/MZlMaDT.png',
+                            action=PostbackTemplateAction(
+                                label='點擊購買',
+                                data='action=sell&item=麥芽餅&URL=https://reurl.cc/2gK0v4'
+                            )
+                        ),
+                        ImageCarouselColumn(
+                            image_url='https://i.imgur.com/qtOiw17.png',
+                            action=PostbackTemplateAction(
+                                label='點擊購買',
+                                data='action=sell&item=KIN卡碧絲洗髮精&URL=https://reurl.cc/nzRNEv'
+                            )
+                        )
+                    ]
+                )
+            )
+        except:
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
