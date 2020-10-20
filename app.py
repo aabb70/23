@@ -250,6 +250,7 @@ def manageForm(event, text, user_id):  #處理LIFF傳回的FORM資料
         elif flist[0] == "女":
             R = "小姐"
         else:
+            T = ""
             R = "用戶"
         text1 = "親愛的"+ T + R + "，您的問題我們已經收到，個人資料如下："
         text1 += "\n性別：" + roomtype
