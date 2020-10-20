@@ -356,8 +356,8 @@ def handle_message(event):
                     ]
                 )
             )
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+        except:
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
     elif(text=="@意見回饋"):
         reply_text = "https://liff.line.me/1655093260-AD5VDqxd"
         message = TextSendMessage(reply_text)
