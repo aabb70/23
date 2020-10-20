@@ -227,11 +227,11 @@ def funcserach(event):  #快速選單
                         action=PostbackTemplateAction(label="聯絡方式", data='action=Func2'),
                         image_url = "https://imgur.com/xb2Y3TL.png"),
                     QuickReplyButton(
-                        action=PostbackTemplateAction(label="促銷商品", data='action=Func3', text='@促銷商品')
-                    ),
+                        action=PostbackTemplateAction(label="促銷商品", data='action=Func3', text='@促銷商品'),
+                        image_url = "https://imgur.com/MvDcnKq.png"),
                     QuickReplyButton(
-                        action=PostbackTemplateAction(label="專人客服", data='action=Func4')
-                    ),
+                        action=PostbackTemplateAction(label="專人客服", data='action=Func4', text='@客服'),
+                        image_url = "https://imgur.com/imLs3oh.png"),
                 ]
             )
         )
