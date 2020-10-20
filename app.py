@@ -206,7 +206,7 @@ def sendQuickreply(event):  #快速選單
                         action=PostbackTemplateAction(label="購買須知", data='action=QA2')
                     ),
                     QuickReplyButton(
-                        action=PostbackTemplateAction(label="取貨方式", data='action=QA3', text='ass')
+                        action=PostbackTemplateAction(label="取貨方式", data='action=QA3')
                     ),
                 ]
             )
@@ -227,7 +227,7 @@ def funcserach(event):  #快速選單
                         action=PostbackTemplateAction(label="聯絡方式", data='action=Func2')
                     ),
                     QuickReplyButton(
-                        action=PostbackTemplateAction(label="促銷商品", data='action=Func3')
+                        action=PostbackTemplateAction(label="促銷商品", data='action=Func3', text='促銷商品')
                     ),
                     QuickReplyButton(
                         action=PostbackTemplateAction(label="專人客服", data='action=Func4')
