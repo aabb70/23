@@ -400,12 +400,29 @@ def sendBack_Func2(event, backdata):  #處理Postback
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 def sendBack_Func3(event, backdata):  #處理Postback
     try:
-        message = TextSendMessage(  #傳送文字
-            text = "@促銷商品"
-        )
-        line_bot_api.reply_message(event.reply_token, message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+            message = TemplateSendMessage(
+                alt_text='圖片轉盤樣板',
+                template=ImageCarouselTemplate(
+                    columns=[
+                        ImageCarouselColumn(
+                            image_url='https://i.imgur.com/MZlMaDT.png',
+                            action=PostbackTemplateAction(
+                                label='點擊購買',
+                                data='action=sell&item=麥芽餅&URL=https://reurl.cc/2gK0v4'
+                            )
+                        ),
+                        ImageCarouselColumn(
+                            image_url='https://i.imgur.com/qtOiw17.png',
+                            action=PostbackTemplateAction(
+                                label='點擊購買',
+                                data='action=sell&item=KIN卡碧絲洗髮精&URL=https://reurl.cc/nzRNEv'
+                            )
+                        )
+                    ]
+                )
+            )
+        except:
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 import os
 if __name__ == "__main__":
