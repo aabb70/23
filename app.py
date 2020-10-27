@@ -232,6 +232,9 @@ def funcserach(event):  #快速選單
                     QuickReplyButton(
                         action=PostbackTemplateAction(label="專人客服", data='action=Func4', text='@客服'),
                         image_url = "https://imgur.com/imLs3oh.png"),
+                    QuickReplyButton(
+                        action=PostbackTemplateAction(label="查詢商品", data='action=Func4', text='@查詢商品'),
+                        image_url = "https://imgur.com/imLs3oh.png"),
                 ]
             )
         )
