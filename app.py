@@ -309,7 +309,7 @@ def handle_message(event):
                 label='零食',
                 uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=45885420'
             ),URITemplateAction(
-                label='香水、香氛'',
+                label='香水、香氛',
                 uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=37027388'
             ),URITemplateAction(
                 label='身體清潔、保養',
