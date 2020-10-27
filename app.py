@@ -300,14 +300,41 @@ def handle_message(event):
         text='請選擇查詢的類別',
         actions=[
             URITemplateAction(
-                label='居家生活',
-                uri='https://shopee.tw/shop/26108934/search?page=0&shopCollection=37027391'
+                label='日常用品',
+                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=45885670'
             ),URITemplateAction(
-                label='香水',
-                uri='https://shopee.tw/shop/26108934/search?page=0&shopCollection=37027388'
+                label='居安防護保護',
+                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=45885527'
             ),URITemplateAction(
-                label='身體清潔,保養',
-                uri='https://shopee.tw/shop/26108934/search?page=0&shopCollection=37027389'
+                label='零食',
+                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=45885420'
+            ),URITemplateAction(
+                label='香水、香氛'',
+                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=37027388'
+            ),URITemplateAction(
+                label='身體清潔、保養',
+                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=37027389'
+            ),URITemplateAction(
+                label='日用品',
+                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835305'
+            ),URITemplateAction(
+                label='醫療護理',
+                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835306'
+            ),URITemplateAction(
+                label='保健食品、營養品',
+                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835309'
+            ),URITemplateAction(
+                label='美髮護理',
+                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835310'
+            ),URITemplateAction(
+                label='美容工具',
+                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835311'
+            ),URITemplateAction(
+                label='文具',
+                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835313'
+            ),URITemplateAction(
+                label='玩具',
+                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835315'
             )
         ]
     )
