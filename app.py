@@ -307,7 +307,7 @@ def handle_message(event):
                 uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=45885527'
             ),URITemplateAction(
                 label='零食',
-                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=45885420'
+                uri='https://shopee.tw/shop/26108934/search?shopCollection=45885420'
             ),MessageTemplateAction(
                 label='下一頁',
                 text='@第二頁'
