@@ -339,6 +339,51 @@ def handle_message(event):
         ]
     )
 )
+    elif (text=="@第三頁"):
+        message = TemplateSendMessage(
+        alt_text='Buttons template',
+        template=ButtonsTemplate(
+        thumbnail_image_url='https://i.imgur.com/uaCoaSQ.png',
+        title='查詢商品',
+        text='請選擇查詢的類別',
+        actions=[
+            URITemplateAction(
+                label='醫療護理',
+                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835306'
+            ),URITemplateAction(
+                label='保健食品、營養品',
+                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835309'
+            ),URITemplateAction(
+                label='美髮護理',
+                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835310'
+            ),MessageTemplateAction(
+                label='下一頁',
+                text='@第四頁'
+            )
+        ]
+    )
+)
+    elif (text=="@第四頁"):
+        message = TemplateSendMessage(
+        alt_text='Buttons template',
+        template=ButtonsTemplate(
+        thumbnail_image_url='https://i.imgur.com/uaCoaSQ.png',
+        title='查詢商品',
+        text='請選擇查詢的類別',
+        actions=[
+            URITemplateAction(
+                label='美容工具',
+                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835311'
+            ),URITemplateAction(
+                label='文具',
+                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835313'
+            ),URITemplateAction(
+                label='玩具',
+                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835315'
+            )
+        ]
+    )
+)
     elif (text=="@功能查詢"):
         message = funcserach(event)
     elif (text=="@客服"):
