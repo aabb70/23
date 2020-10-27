@@ -311,6 +311,9 @@ def handle_message(event):
             ),URITemplateAction(
                 label='香水、香氛',
                 uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=37027388'
+            ),URITemplateAction(
+                label='身體清潔、保養',
+                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=37027389'
             )
         ]
     )
