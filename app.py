@@ -311,30 +311,6 @@ def handle_message(event):
             ),URITemplateAction(
                 label='香水、香氛',
                 uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=37027388'
-            ),URITemplateAction(
-                label='身體清潔、保養',
-                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=37027389'
-            ),URITemplateAction(
-                label='日用品',
-                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835305'
-            ),URITemplateAction(
-                label='醫療護理',
-                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835306'
-            ),URITemplateAction(
-                label='保健食品、營養品',
-                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835309'
-            ),URITemplateAction(
-                label='美髮護理',
-                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835310'
-            ),URITemplateAction(
-                label='美容工具',
-                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835311'
-            ),URITemplateAction(
-                label='文具',
-                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835313'
-            ),URITemplateAction(
-                label='玩具',
-                uri='https://shopee.tw/shop/26108934/?page=0&shopCollection=42835315'
             )
         ]
     )
