@@ -418,15 +418,22 @@ def handle_message(event):
                         ImageCarouselColumn(
                             image_url='https://i.imgur.com/MZlMaDT.png',
                             action=PostbackTemplateAction(
-                                label='點擊購買',
+                                label='點擊購買👉',
                                 data='action=sell&item=麥芽餅&URL=https://reurl.cc/2gK0v4'
                             )
                         ),
                         ImageCarouselColumn(
                             image_url='https://i.imgur.com/qtOiw17.png',
                             action=PostbackTemplateAction(
-                                label='點擊購買',
+                                label='點擊購買👉',
                                 data='action=sell&item=KIN卡碧絲洗髮精&URL=https://reurl.cc/nzRNEv'
+                            )
+                        ),
+                        ImageCarouselColumn(
+                            image_url='https://imgur.com/a/aUPaIT8.png',
+                            action=PostbackTemplateAction(
+                                label='點擊購買👉',
+                                data='action=sell&item=麥芽餅&URL=https://reurl.cc/2gK0v4'
                             )
                         )
                     ]
