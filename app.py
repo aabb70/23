@@ -435,6 +435,13 @@ def handle_message(event):
                                 label='點擊購買👉',
                                 data='action=sell&item=麥芽餅&URL=https://reurl.cc/2gK0v4'
                             )
+                        ),
+                        ImageCarouselColumn(
+                            image_url='https://imgur.com/2HJyK9R.png',
+                            action=PostbackTemplateAction(
+                                label='點擊購買👉',
+                                data='action=sell&item=麥芽餅&URL=https://reurl.cc/2gK0v4'
+                            )
                         )
                     ]
                 )
