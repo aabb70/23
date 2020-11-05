@@ -429,6 +429,13 @@ def handle_message(event):
                                 uri="https://reurl.cc/nzRNEv"
                             )
                         )
+                        ImageCarouselColumn(
+                            image_url='https://imgur.com/cGYPtfi.png',
+                            action=URITemplateAction(
+                                label='賣場連結👉',
+                                uri="https://shopee.tw/aabb7172"
+                            )
+                        )
                     ]
                 )
             )
