@@ -428,7 +428,7 @@ def handle_message(event):
                                 label='點擊購買👉',
                                 uri="https://reurl.cc/nzRNEv"
                             )
-                        )
+                        ),
                         ImageCarouselColumn(
                             image_url='https://imgur.com/cGYPtfi.png',
                             action=URITemplateAction(
