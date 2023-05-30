@@ -401,7 +401,7 @@ def handle_message(event):
         ]
     )
 )
-    elif text[:3] == '###' and len(text) > 3:  //LIFF語法
+    elif text[:3] == '###' and len(text) > 3:
         manageForm(event, text, user_id)
     elif(text=="@熱門商品"):
         sendImgmap(event)
