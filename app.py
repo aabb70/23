@@ -416,7 +416,7 @@ def handle_message(event):
                 template=ImageCarouselTemplate(
                     columns=[
                         ImageCarouselColumn(
-                            image_url='https://imgur.com/YS25WGk.png',
+                            image_url='https://imgur.com/mn2zLYx.png',
                             action=URITemplateAction(
                                 label='點擊購買👉',
                                 uri="https://reurl.cc/2gK0v4"
