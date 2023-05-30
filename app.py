@@ -259,7 +259,7 @@ def manageForm(event, text, user_id):  #處理LIFF傳回的FORM資料
         text1 += "\n性別：" + roomtype
         text1 += "\n姓名：" + amount
         text1 += "\n電話：" + tel
-        message = TextSendMessage(  #顯示訂房資料
+        message = TextSendMessage(  
             text = text1
         )
         line_bot_api.reply_message(event.reply_token,message)
@@ -401,7 +401,7 @@ def handle_message(event):
         ]
     )
 )
-    elif text[:3] == '###' and len(text) > 3:  
+    elif text[:3] == '###' and len(text) > 3:  //LIFF語法
         manageForm(event, text, user_id)
     elif(text=="@熱門商品"):
         sendImgmap(event)
@@ -416,7 +416,7 @@ def handle_message(event):
                 template=ImageCarouselTemplate(
                     columns=[
                         ImageCarouselColumn(
-                            image_url='https://imgur.com/2HJyK9R.png',
+                            image_url='https://i.imgur.com/YS25WGk.png',
                             action=URITemplateAction(
                                 label='點擊購買👉',
                                 uri="https://reurl.cc/2gK0v4"
