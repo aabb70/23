@@ -416,14 +416,14 @@ def handle_message(event):
                 template=ImageCarouselTemplate(
                     columns=[
                         ImageCarouselColumn(
-                            image_url='https://imgur.com/a/Xk4qE24.png',
+                            image_url='https://imgur.com/mn2zLYx.png',
                             action=URITemplateAction(
                                 label='點擊購買👉',
                                 uri="https://reurl.cc/2gK0v4"
                             )
                         ),
                         ImageCarouselColumn(
-                            image_url='https://imgur.com/a/CnHI4cb.png',
+                            image_url='https://imgur.com/j4H5F8m.png',
                             action=URITemplateAction(
                                 label='點擊購買👉',
                                 uri="https://reurl.cc/nzRNEv"
