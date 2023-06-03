@@ -416,21 +416,21 @@ def handle_message(event):
                 template=ImageCarouselTemplate(
                     columns=[
                         ImageCarouselColumn(
-                            image_url='https://imgur.com/mn2zLYx.png',
+                            image_url='https://imgur.com/a/Xk4qE24.png',
                             action=URITemplateAction(
                                 label='點擊購買👉',
                                 uri="https://reurl.cc/2gK0v4"
                             )
                         ),
                         ImageCarouselColumn(
-                            image_url='https://imgur.com/mn2zLYx.png',
+                            image_url='https://imgur.com/a/CnHI4cb.png',
                             action=URITemplateAction(
                                 label='點擊購買👉',
                                 uri="https://reurl.cc/nzRNEv"
                             )
                         ),
                         ImageCarouselColumn(
-                            image_url='https://imgur.com/cGYPtfi.png',
+                            image_url='https://imgur.com/dGTEwEH.png',
                             action=URITemplateAction(
                                 label='賣場連結👉',
                                 uri="https://shopee.tw/aabb7172"
